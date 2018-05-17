@@ -46,10 +46,10 @@ class VideoFrame extends Component {
         const { keypoints } = features
         const { part: leftPart, position: leftPosition } = keypoints[9]
         const { part: rightPart, position: rightPosition } = keypoints[10]
-        console.log('Volume', Math.floor((leftPosition.y+rightPosition.y)/8))
+        console.log('Volume', 200 - Math.floor((leftPosition.y+rightPosition.y)/8))
         console.log('Pitch', Math.floor((leftPosition.x*1.5)+(rightPosition.x*1.5))/2)
         
-        this.audio.changeVolume(Math.floor((leftPosition.y+rightPosition.y)/8))
+        this.audio.changeVolume(200 - Math.floor((leftPosition.y+rightPosition.y)/8))
         this.audio.changePitch(Math.floor((leftPosition.x*1.5)+(rightPosition.x*1.5))/2)
       });
     });
@@ -72,15 +72,17 @@ class VideoFrame extends Component {
     this.allowCountdown()
 
     return (
-      <Fragment className="video-container" style={{ height: size, width: size }}>
-        { this.state.countdown && <Countdown /> }
-        <video
-          autoPlay
-          playsInline
-          ref={this.video}
-          height={size}
-          width={size}
-        />
+      <Fragment>
+        <div className="video-container" style={{ height: size, width: size }}>
+          { this.state.countdown && <Countdown /> }
+          <video
+            autoPlay
+            playsInline
+            ref={this.video}
+            height={size}
+            width={size}
+          />
+        </div>
       </Fragment>
     );
   }
