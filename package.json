@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/nihilates/slothyoga#readme",
   "dependencies": {
+    "@tensorflow-models/posenet": "0.0.1",
+    "@tensorflow/tfjs": "^0.10.3",
     "@zeit/next-sass": "^0.1.2",
     "classnames": "^2.2.5",
     "next": "^5.1.0",
