@@ -1,5 +1,10 @@
+
 import { Component, Fragment } from 'react'
 import * as posenet from "@tensorflow-models/posenet";
+import PropTypes from "prop-types"
+import AudioService from '../../service/audio'
+
+import { receiveSound } from "../utils"
 
 import Countdown from '../countdown'
 
@@ -22,6 +27,7 @@ class VideoFrame extends Component {
   }
 
   componentDidMount() {
+    this.audio = new AudioService();
     // setup webrtc
     navigator.mediaDevices
       .getUserMedia(this.state.constraints)
@@ -36,8 +42,15 @@ class VideoFrame extends Component {
           this.state.flipHorizontal,
           this.state.outputStride
         );
-
-        console.log(features);
+        
+        const { keypoints } = features
+        const { part: leftPart, position: leftPosition } = keypoints[9]
+        const { part: rightPart, position: rightPosition } = keypoints[10]
+        console.log('Volume', Math.floor((leftPosition.y+rightPosition.y)/8))
+        console.log('Pitch', Math.floor((leftPosition.x*1.5)+(rightPosition.x*1.5))/2)
+        
+        this.audio.changeVolume(Math.floor((leftPosition.y+rightPosition.y)/8))
+        this.audio.changePitch(Math.floor((leftPosition.x*1.5)+(rightPosition.x*1.5))/2)
       });
     });
   }
@@ -55,20 +68,30 @@ class VideoFrame extends Component {
   }
 
   render() {
+    const { size } = this.props
     this.allowCountdown()
+
     return (
-      <Fragment>
+      <Fragment className="video-container" style={{ height: size, width: size }}>
         { this.state.countdown && <Countdown /> }
         <video
           autoPlay
           playsInline
           ref={this.video}
-          height="480px"
-          width="480px"
+          height={size}
+          width={size}
         />
       </Fragment>
     );
   }
+}
+
+VideoFrame.propTypes = {
+  size: PropTypes.string
+}
+
+VideoFrame.defaultProps = {
+  size: "480px"
 }
 
 export default VideoFrame
