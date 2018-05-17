@@ -1,0 +1,14 @@
+.countdown {
+	height: 480px;
+	width: 480px;
+	background-color: #DDD;
+	opacity: 0.5;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.timer {
+	font-size: 10rem;
+}
