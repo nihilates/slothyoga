@@ -1,5 +1,7 @@
-import { Component } from 'react'
+import { Component, Fragment } from 'react'
 import * as posenet from "@tensorflow-models/posenet";
+
+import Countdown from '../countdown'
 
 class VideoFrame extends Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class VideoFrame extends Component {
       },
       scaleFactor: 0.5,
       flipHorizontal: true,
-      outputStride: 16
+      outputStride: 16,
+      countdown: true
     };
 
     this.video = React.createRef();
@@ -47,15 +50,23 @@ class VideoFrame extends Component {
     console.log(error);
   };
 
+  allowCountdown() {
+    setTimeout(() => this.setState({countdown: false}), 4500)
+  }
+
   render() {
+    this.allowCountdown()
     return (
-      <video
-        autoPlay
-        playsInline
-        ref={this.video}
-        height="480px"
-        width="480px"
-      />
+      <Fragment>
+        { this.state.countdown && <Countdown /> }
+        <video
+          autoPlay
+          playsInline
+          ref={this.video}
+          height="480px"
+          width="480px"
+        />
+      </Fragment>
     );
   }
 }
