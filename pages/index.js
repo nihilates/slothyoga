@@ -1,9 +1,18 @@
-import Container from '../components/container'
+import React, { Component } from "react";
+import * as posenet from "@tensorflow-models/posenet";
 
-const Index = () => (
-  <Container>
-    <h3>Spit me a beat</h3>
-  </Container>
-)
+import Container from "../components/container";
+import VideoFrame from "../components/video-frame"
 
-export default Index
+
+class Index extends Component {
+  render() {
+    return (
+      <Container>
+        <VideoFrame />
+      </Container>
+    );
+  }
+}
+
+export default Index;
