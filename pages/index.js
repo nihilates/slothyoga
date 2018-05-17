@@ -1,8 +1,10 @@
 import Container from '../components/container'
+import AudioControl from '../components/audio-control'
 
 const Index = () => (
   <Container>
-    <h3>Spit me a beat</h3>
+    <h3>Slothyoga</h3>
+    <AudioControl/>
   </Container>
 )
 
