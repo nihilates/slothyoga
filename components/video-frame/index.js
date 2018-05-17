@@ -58,18 +58,16 @@ class VideoFrame extends Component {
 
         console.log(
           "Volume",
-          Math.floor((leftPosition.y + rightPosition.y) / 8)
+          200 - Math.floor((leftPosition.y + rightPosition.y) / 8)
         );
-
         console.log(
           "Pitch",
           Math.floor(leftPosition.x * 1.5 + rightPosition.x * 1.5) / 2
         );
 
         this.audio.changeVolume(
-          Math.floor((leftPosition.y + rightPosition.y) / 8)
+          200 - Math.floor((leftPosition.y + rightPosition.y) / 8)
         );
-
         this.audio.changePitch(
           Math.floor(leftPosition.x * 1.5 + rightPosition.x * 1.5) / 2
         );
