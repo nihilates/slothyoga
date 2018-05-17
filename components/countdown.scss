@@ -1,13 +1,13 @@
 .countdown {
-	height: 480px;
-	width: 480px;
-	background-color: rgba(221,221,221, 0.5);
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(221, 221, 221, 0.5);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .timer {
-	font-size: 10rem;
+  font-size: 10rem;
 }
