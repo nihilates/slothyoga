@@ -1,0 +1,28 @@
+{
+  "name": "slothyoga",
+  "version": "1.0.0",
+  "description": "Serverless Theramin",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nihilates/slothyoga.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nihilates/slothyoga/issues"
+  },
+  "homepage": "https://github.com/nihilates/slothyoga#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^0.1.2",
+    "classnames": "^2.2.5",
+    "next": "^5.1.0",
+    "node-sass": "^4.8.3",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}

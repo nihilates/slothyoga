@@ -1,0 +1,5 @@
+.container {
+  @include rem(max-width, 1024);
+  position: relative;
+  margin: auto;
+}

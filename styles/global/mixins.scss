@@ -1,0 +1,31 @@
+@mixin rem($property, $pxval, $base: 16, $importance: '') {
+    #{$property}: #{$pxval}px unquote($importance);
+    #{$property}: #{$pxval / $base}rem unquote($importance);
+}
+
+@mixin opacity($opacity, $importance: '') {
+    opacity: $opacity unquote($importance);
+    -moz-opacity: $opacity unquote($importance);
+    -khtml-opacity: $opacity unquote($importance);
+    filter: alpha(opacity = $opacity * 100) unquote($importance);
+}
+
+@mixin transition($transition-string) {
+    -webkit-transition: #{$transition-string};
+    -moz-transition: #{$transition-string};
+    -ms-transition: #{$transition-string};
+    -o-transition: #{$transition-string};
+    transition: #{$transition-string};
+}
+
+@mixin transform($transform-string) {
+    -webkit-transform: #{$transform-string};
+    -moz-transform: #{$transform-string};
+    -ms-transform: #{$transform-string};
+    -o-transform: #{$transform-string};
+    transform: #{$transform-string};
+}
+
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+    box-shadow: $x $y $blur $spread $color;
+}
