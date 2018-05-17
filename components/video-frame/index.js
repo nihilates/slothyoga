@@ -1,9 +1,12 @@
-import React, { Component } from "react"
+
+import { Component, Fragment } from 'react'
 import * as posenet from "@tensorflow-models/posenet";
 import PropTypes from "prop-types"
 import AudioService from '../../service/audio'
 
 import { receiveSound } from "../utils"
+
+import Countdown from '../countdown'
 
 class VideoFrame extends Component {
   constructor(props) {
@@ -17,6 +20,7 @@ class VideoFrame extends Component {
       scaleFactor: 0.5,
       flipHorizontal: true,
       outputStride: 16,
+      countdown: true
     };
 
     this.video = React.createRef();
@@ -59,11 +63,17 @@ class VideoFrame extends Component {
     console.log(error);
   };
 
+  allowCountdown() {
+    setTimeout(() => this.setState({countdown: false}), 4500)
+  }
+
   render() {
     const { size } = this.props
+    this.allowCountdown()
 
     return (
-      <div className="video-container" style={{ height: size, width: size }}>
+      <Fragment className="video-container" style={{ height: size, width: size }}>
+        { this.state.countdown && <Countdown /> }
         <video
           autoPlay
           playsInline
@@ -71,7 +81,7 @@ class VideoFrame extends Component {
           height={size}
           width={size}
         />
-      </div>
+      </Fragment>
     );
   }
 }
