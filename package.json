@@ -25,6 +25,8 @@
     "node-sass": "^4.8.3",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "react-rangeslider": "^2.2.0",
+    "tone": "^0.12.80"
   }
 }
