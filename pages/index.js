@@ -10,7 +10,7 @@ class Index extends Component {
     return (
       <Container>
         <VideoFrame />
-        <AudioControl/>
+        <AudioControl />
       </Container>
     );
   }
